@@ -1,0 +1,42 @@
+# Terry Wang
+
+> Terry Wang (also Tianyu Wang) is a software engineer at Cresta, previously a
+> software engineer at Google for four years. He holds a Bachelor of Computer
+> Science from the University of Waterloo and is based in Canada.
+
+Personal site: https://tianyu.wang/
+
+## Current
+
+- **Cresta** - Software Engineer, December 2025 to present. Remote, Canada.
+
+## Previous
+
+- **Google** - Software Engineer II to III, August 2021 to October 2025.
+  Kitchener, Ontario, Canada and Los Angeles, California, United States. Worked
+  on Google Cloud Billing Console: Angular UI and middle-layer migrations, and
+  data resource models for a public cloud pricing API.
+- **Ritual** - Software Engineer Intern, September to December 2020. Toronto,
+  Ontario, Canada.
+- **Google** - Software Engineer Intern, May to August 2020. Mountain View,
+  California, United States. Contributed zPages to the OpenTelemetry Java SDK.
+- **Deloitte** - Software Engineer Intern, January to April 2019. Kitchener,
+  Ontario, Canada.
+- **Finastra** - Software Engineer Intern, May to August 2018. Toronto, Ontario,
+  Canada.
+
+## Education
+
+- **University of Waterloo** - Bachelor of Computer Science, September 2016 to
+  April 2021. Waterloo, Ontario, Canada.
+
+## Skills
+
+TypeScript, JavaScript, React, Angular, Node.js, Python, Java, and web
+performance work.
+
+## Links
+
+- [LinkedIn](https://www.linkedin.com/in/wtyanan/): full professional profile
+- [GitHub](https://github.com/wtyanan): open-source and personal projects
+- [Resume](https://drive.proton.me/urls/0DTXKBD88C#HPO89fOMbVv9): current CV

@@ -11,7 +11,7 @@
       document.documentElement.classList.add('js');
     </script>
 
-    <title>Terry Wang · Software Engineer at Cresta</title>
+    <title>Terry Wang · Software Engineer</title>
     <meta
       name="description"
       content="Terry (Tianyu) Wang, software engineer at Cresta, previously Google. University of Waterloo computer science. Experience timeline, résumé and profiles."
@@ -28,7 +28,7 @@
     <meta property="og:site_name" content="Terry Wang" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:url" content="https://tianyu.wang/" />
-    <meta property="og:title" content="Terry Wang · Software Engineer at Cresta" />
+    <meta property="og:title" content="Terry Wang · Software Engineer" />
     <meta
       property="og:description"
       content="Software Engineer @ Cresta | Ex-Google | UWaterloo"
@@ -44,7 +44,7 @@
     <meta property="profile:first_name" content="Terry" />
     <meta property="profile:last_name" content="Wang" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Terry Wang · Software Engineer at Cresta" />
+    <meta name="twitter:title" content="Terry Wang · Software Engineer" />
     <meta
       name="twitter:description"
       content="Software Engineer @ Cresta | Ex-Google | UWaterloo"
@@ -72,6 +72,16 @@
         "@context": "https://schema.org",
         "@graph": [
           {
+            "@type": "ProfilePage",
+            "@id": "https://tianyu.wang/#page",
+            "url": "https://tianyu.wang/",
+            "name": "Terry Wang · Software Engineer",
+            "inLanguage": "en",
+            "isPartOf": { "@id": "https://tianyu.wang/#website" },
+            "mainEntity": { "@id": "https://tianyu.wang/#person" },
+            "primaryImageOfPage": "https://tianyu.wang/og.png"
+          },
+          {
             "@type": "Person",
             "@id": "https://tianyu.wang/#person",
             "name": "Terry Wang",
@@ -80,6 +90,11 @@
             "image": "https://tianyu.wang/og.png",
             "jobTitle": "Software Engineer",
             "description": "Software engineer at Cresta, previously Google. University of Waterloo computer science.",
+            "hasOccupation": {
+              "@type": "Occupation",
+              "name": "Software Engineer",
+              "occupationLocation": { "@type": "Country", "name": "Canada" }
+            },
             "worksFor": {
               "@type": "Organization",
               "name": "Cresta",
