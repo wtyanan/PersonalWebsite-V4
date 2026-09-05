@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tianyu.wang/sitemap.xml
