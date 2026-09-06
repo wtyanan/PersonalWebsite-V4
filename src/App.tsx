@@ -1,13 +1,13 @@
 import { Hero } from './components/Hero';
-import { ScrollProgress } from './components/ScrollProgress';
 import { Timeline } from './components/Timeline';
 import { profile } from './data/profile';
 
 export default function App() {
   return (
     <>
-      <div className="aurora" aria-hidden="true" />
-      <ScrollProgress />
+      <div className="backdrop" aria-hidden="true" />
+      {/* Reading progress. Driven entirely by the CSS scroll timeline. */}
+      <div className="progress" aria-hidden="true" />
       <main>
         <Hero />
         <Timeline />

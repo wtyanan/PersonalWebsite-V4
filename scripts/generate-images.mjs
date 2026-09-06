@@ -19,8 +19,8 @@ const NAME = 'Terry Wang';
 const TAGLINE = 'Software Engineer @ Cresta  |  Ex-Google  |  UWaterloo';
 const SITE = 'tianyu.wang';
 
-// Inter is not installed system-wide; Segoe UI is the closest grotesque that is.
-const FONT = "'Segoe UI', Inter, Helvetica, Arial, sans-serif";
+// Geist is not installed system-wide; Segoe UI is the closest grotesque that is.
+const FONT = "'Segoe UI', Geist, Helvetica, Arial, sans-serif";
 
 /** The portrait renders at 122px, so 400px covers 3x displays. */
 async function portrait() {

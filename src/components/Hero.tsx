@@ -1,4 +1,4 @@
-import { useEffect, useRef, Fragment, type CSSProperties } from 'react';
+import { Fragment, type CSSProperties, type MouseEvent } from 'react';
 import portrait from '../assets/portrait.jpg';
 import { links, profile } from '../data/profile';
 import { ArrowIcon, LinkIcon } from './icons';
@@ -7,39 +7,19 @@ import { ArrowIcon, LinkIcon } from './icons';
     waiting for hydration to reveal it. */
 const rise = (delay: number) => ({ '--rise-delay': `${delay}ms` }) as CSSProperties;
 
+/** Feeds the pointer position to the pill's spotlight, as the cards do. */
+const trackCursor = (event: MouseEvent<HTMLElement>) => {
+  const rect = event.currentTarget.getBoundingClientRect();
+  event.currentTarget.style.setProperty('--mx', `${event.clientX - rect.left}px`);
+  event.currentTarget.style.setProperty('--my', `${event.clientY - rect.top}px`);
+};
+
 export function Hero() {
-  const innerRef = useRef<HTMLDivElement>(null);
-
-  // Drift the hero up and out as the page scrolls past it.
-  useEffect(() => {
-    const node = innerRef.current;
-    if (!node) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-    let frame = 0;
-    const update = () => {
-      frame = 0;
-      const progress = Math.min(window.scrollY / window.innerHeight, 1);
-      node.style.setProperty('--hero-shift', `${progress * -48}px`);
-      node.style.setProperty('--hero-opacity', `${1 - progress * 1.15}`);
-      node.parentElement?.style.setProperty('--hero-opacity', `${1 - progress * 2.4}`);
-    };
-
-    const onScroll = () => {
-      if (!frame) frame = requestAnimationFrame(update);
-    };
-
-    update();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-      if (frame) cancelAnimationFrame(frame);
-    };
-  }, []);
-
   return (
     <header className="hero shell">
-      <div className="hero-inner" ref={innerRef}>
+      {/* The drift-out on scroll lives in CSS on a scroll timeline, so this
+          component ships no JavaScript at all. */}
+      <div className="hero-inner">
         <div className="portrait rise" style={rise(0)}>
           <img
             src={portrait}
@@ -58,7 +38,7 @@ export function Hero() {
           {profile.tagline.map((part, i) => (
             <Fragment key={part}>
               {i > 0 && <span className="sep">|</span>}
-              {part}
+              <span className="part">{part}</span>
             </Fragment>
           ))}
         </p>
@@ -71,6 +51,7 @@ export function Hero() {
               href={link.href}
               target="_blank"
               rel="noreferrer noopener"
+              onMouseMove={trackCursor}
             >
               <span className="link-face">
                 <LinkIcon name={link.icon} />

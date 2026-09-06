@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type MouseEvent } from 'react';
+import { useState, type MouseEvent } from 'react';
 import { groups, type Entry } from '../data/profile';
 import { ArrowIcon } from './icons';
 import { Reveal } from './Reveal';
@@ -60,11 +60,7 @@ function Card({ entry, delay }: { entry: Entry; delay: number }) {
           </h3>
           <p className="role">{entry.role}</p>
           <div className="entry-meta">
-            {entry.current ? (
-              <span className="badge">{entry.period}</span>
-            ) : (
-              <span>{entry.period}</span>
-            )}
+            <span>{entry.period}</span>
             <span className="dot">·</span>
             <span>{entry.location}</span>
           </div>
@@ -75,40 +71,6 @@ function Card({ entry, delay }: { entry: Entry; delay: number }) {
 }
 
 export function Timeline() {
-  const railRef = useRef<HTMLDivElement>(null);
-
-  // Fill the timeline rail as the section passes the middle of the viewport.
-  useEffect(() => {
-    const node = railRef.current;
-    if (!node) return;
-
-    let frame = 0;
-    const update = () => {
-      frame = 0;
-      const rect = node.getBoundingClientRect();
-      const viewport = window.innerHeight;
-      // Ramp linearly from the moment the rail reaches mid-viewport to the very
-      // end of the page, so it tops out exactly when there is no scroll left.
-      const start = rect.top + window.scrollY - viewport * 0.55;
-      const end = document.documentElement.scrollHeight - viewport;
-      const filled = end > start ? (window.scrollY - start) / (end - start) : 1;
-      node.style.setProperty('--rail', `${Math.min(Math.max(filled, 0), 1)}`);
-    };
-
-    const onScroll = () => {
-      if (!frame) frame = requestAnimationFrame(update);
-    };
-
-    update();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onScroll);
-      if (frame) cancelAnimationFrame(frame);
-    };
-  }, []);
-
   let index = 0;
 
   return (
@@ -117,7 +79,8 @@ export function Timeline() {
         Experience
       </Reveal>
 
-      <div className="timeline" ref={railRef}>
+      {/* The rail fills itself from the CSS view timeline; no scroll listener. */}
+      <div className="timeline">
         {groups.map((group) => (
           <div className="group" key={group.label}>
             <Reveal className="group-label" delay={0}>

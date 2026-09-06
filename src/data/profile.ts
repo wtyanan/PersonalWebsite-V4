@@ -51,7 +51,7 @@ export const groups: Group[] = [
         url: 'https://about.google',
         role: 'Software Engineer II → III',
         period: 'Aug 2021 - Oct 2025',
-        location: 'Kitchener, ON, Canada · Los Angeles, CA, US',
+        location: 'Kitchener, ON → Los Angeles, CA',
       },
     ],
   },
